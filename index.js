@@ -9,40 +9,40 @@
 
 // EXAMPLE SOLUTION CODE:
 function Airplane(name) {
-    this.name = name;
-    this.isFlying = false;
+  this.name = name;
+  this.isFlying = false;
   }
   Airplane.prototype.takeOff = function () {
     this.isFlying = true;
   };
   Airplane.prototype.land = function () {
     this.isFlying = false;
-  };
+};
   
   
-  /*
-  // 👇 COMPLETE YOUR WORK BELOW 👇
-  // 👇 COMPLETE YOUR WORK BELOW 👇
-  // 👇 COMPLETE YOUR WORK BELOW 👇
-  */
+/*
+// 👇 COMPLETE YOUR WORK BELOW 👇
+// 👇 COMPLETE YOUR WORK BELOW 👇
+// 👇 COMPLETE YOUR WORK BELOW 👇
+*/
   
-  /*
-    TASK 1
-      - Write a Person Constructor that initializes `name` and `age` from arguments.
-      - All instances of Person should initialize with an empty `stomach` array.
-      - Give instances of Person the ability to `.eat("someFood")`:
-          + When eating an edible, it should be pushed into the `stomach`.
-          + The `eat` method should have no effect if there are 10 items in the `stomach`.
-      - Give instances of Person the ability to `.poop()`:
-          + When an instance poops, its `stomach` should empty.
-      - Give instances of Person a method `.toString()`:
-          + It should return a string with `name` and `age`. Example: "Mary, 50"
-  */
+/*
+TASK 1
+  - Write a Person Constructor that initializes `name` and `age` from arguments.
+  - All instances of Person should initialize with an empty `stomach` array.
+  - Give instances of Person the ability to `.eat("someFood")`:
+      + When eating an edible, it should be pushed into the `stomach`.
+      + The `eat` method should have no effect if there are 10 items in the `stomach`.
+  - Give instances of Person the ability to `.poop()`:
+      + When an instance poops, its `stomach` should empty.
+  - Give instances of Person a method `.toString()`:
+      + It should return a string with `name` and `age`. Example: "Mary, 50"
+*/
   
- function Person(name, age) {
-    this.name = name;
-    this.ae = age;
-    this.stomach = [];
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
   }
 
   Person.prototype.eat = function(someFood) {
@@ -88,40 +88,57 @@ Car.prototype.fill = function(gallons) {
 }
   
 Car.prototype.drive = function(distance) {
+
   const driveMiles = this.tank * this.milesPerGallon;
+
   if (distance <= driveMiles) {
+
     this.odometer = this.odometer + distance;
     this.tank = this.tank - (distance/this.milesPerGallon);
+
   } else {
+
     this.odometer = this.odometer + driveMiles;
     this.tank = 0;
+
   return `I ran out of fuel at ${this.odometer} miles!`;
   }
 }
   
 /*
-    TASK 3
-      - Write a Baby constructor subclassing Person.
-      - Besides `name` and `age`, Baby takes a third argument to initialize `favoriteToy`.
-      - Besides the methods on Person.prototype, babies have the ability to `.play()`:
-          + Should return a string "Playing with x", x being the favorite toy.
-  */
- function Baby() {
-   
+  TASK 3
+    - Write a Baby constructor subclassing Person.
+    - Besides `name` and `age`, Baby takes a third argument to initialize `favoriteToy`.
+    - Besides the methods on Person.prototype, babies have the ability to `.play()`:
+      + Should return a string "Playing with x", x being the favorite toy.
+*/
+
+function Baby(name, age, favoriteToy) {
+
+  Person.call(this, name, age);
+  this.favoriteToy = favoriteToy;
+
   }
- 
+
+  Baby.prototype = Object.create(Person.prototype);
+
+  Baby.prototype.play = function() {
+
+  return `Playing with ${this.favoriteToy}`;
+
+}
+
+/* 
+  TASK 4
+  In your own words explain the four principles for the "this" keyword below:
+  1. 
+  2. 
+  3. 
+  4. 
+*/
   
-  /* 
-    TASK 4
-    In your own words explain the four principles for the "this" keyword below:
-    1. 
-    2. 
-    3. 
-    4. 
-  */
   
-  
-  ///////// END OF CHALLENGE /////////
+///////// END OF CHALLENGE /////////
 
   /* 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 */
 function foo(){
