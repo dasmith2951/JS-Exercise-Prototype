@@ -131,10 +131,21 @@ function Baby(name, age, favoriteToy) {
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+
+  1. Global context - Whenever a fn is contained in the global scope, 
+  the value of this inside of that fn will be the window object itself.
+
+  2. Function context - Whenever a constructor function is used, 
+  this refers to the specific instance of the object that is created 
+  and returned by the constructor function.
+
+  3. Class context - Whenever a function is called by a preceding dot, 
+  the object before that dot is this.
+
+  4. Derived classes - A derived class is a class created from another existing class. 
+  (https://javascript.info/class-inheritance has a great example using animals. 
+  just Ctrl + f "derived")
+
 */
   
   
