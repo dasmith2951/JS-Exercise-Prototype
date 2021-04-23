@@ -118,11 +118,11 @@ function Baby(name, age, favoriteToy) {
   Person.call(this, name, age);
   this.favoriteToy = favoriteToy;
 
-  }
+}
 
-  Baby.prototype = Object.create(Person.prototype);
+Baby.prototype = Object.create(Person.prototype);
 
-  Baby.prototype.play = function() {
+Baby.prototype.play = function() {
 
   return `Playing with ${this.favoriteToy}`;
 
@@ -142,10 +142,15 @@ function Baby(name, age, favoriteToy) {
   3. Class context - Whenever a function is called by a preceding dot, 
   the object before that dot is this.
 
-  4. Derived classes - A derived class is a class created from another existing class. 
-  (https://javascript.info/class-inheritance has a great example using animals. 
-  just Ctrl + f "derived")
+  4. Derived classes - derived classes are subclasses with four exceptions.
+  * Subclasses are declared with the class keyword, followed by an identifier, and then the extends keyword, followed by an arbitrary expression. This will generally just be an identifier, but could, in theory, be a function.
 
+  * If your derived class needs to refer to the class it extends, it can do so with the super keyword.
+
+  * A derived class can't contain an empty constructor. Even if all the constructor does is call super(), you'll still have to do so explicitly. It can, however, contain no constructor.
+
+  * You must call super in the constructor of a derived class before you use this.
+  
 */
   
   
